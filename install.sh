@@ -1,4 +1,8 @@
 #!/bin/sh
+sudo ufw allow 5000
+sudo ufw allow 80
+sudo apt-get -y install apache2
+sudo service apache2 restart
 /usr/bin/python3 -m pip install virtualenv
 /usr/bin/python3 -m virtualenv venv
 . venv/bin/activate
