@@ -11,6 +11,7 @@ app = Flask(__name__)
 username = os.environ.get("TV_USERNAME")
 password = os.environ.get("TV_PASSWORD")
 tv = TvDatafeed(username, password)
+tv.ws_timeout = 10
 
 
 @app.route("/")
