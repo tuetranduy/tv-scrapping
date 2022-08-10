@@ -6,8 +6,8 @@ cd tv-scrapping
 
 echo '===== putting username and password to .env file ... ====='
 touch .env
-echo 'TV_USERNAME=tuetranduy' >> .env
-echo 'TV_PASSWORD=tuetranduy123' >> .env
+echo 'TV_USERNAME=' >> .env
+echo 'TV_PASSWORD=' >> .env
 
 echo '===== starting application ... ====='
 export FLASK_APP=api.py
