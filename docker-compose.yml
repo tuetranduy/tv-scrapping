@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    image: tv-scrapping/python:v1
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    environment:
+      FLASK_APP: api.py
+      TV_USERNAME:
+      TV_PASSWORD:
