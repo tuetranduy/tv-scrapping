@@ -8,5 +8,5 @@ services:
     restart: unless-stopped
     environment:
       FLASK_APP: api.py
-      TV_USERNAME:
-      TV_PASSWORD:
+      TV_USERNAME: ${TV_USERNAME}
+      TV_PASSWORD: ${TV_PASSWORD}
