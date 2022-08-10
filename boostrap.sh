@@ -12,4 +12,5 @@ echo 'TV_PASSWORD=' >> .env
 
 echo '===== starting application ... ====='
 export FLASK_APP=api.py
-pythonw -m flask run -h 0.0.0.0
+. venv/bin/activate
+nohup flask run -h 0.0.0.0 &
