@@ -11,7 +11,6 @@ app = Flask(__name__)
 username = os.environ.get("TV_USERNAME")
 password = os.environ.get("TV_PASSWORD")
 tv = TvDatafeed(username, password)
-tv.ws_timeout = 10
 
 
 @app.route("/")
@@ -23,17 +22,18 @@ def index():
 def get_data():
     request_data = request.json
 
+    print(request.json)
+
     symbol = request_data['symbol']
     exchange = request_data['exchange']
     interval = get_time_interval(request_data['interval'])
     n_bars = request_data['bars']
-    fut_contract = request_data['isFutureContract']
 
-    raw_index_data = tv.get_hist(symbol=symbol,
-                                 exchange=exchange,
-                                 interval=interval,
-                                 n_bars=n_bars,
-                                 fut_contract=fut_contract)
+    if 'isFutureContract' in request_data:
+        fut_contract = request_data['isFutureContract']
+        raw_index_data = tv.get_hist(symbol, exchange, interval, n_bars, fut_contract)
+    else:
+        raw_index_data = tv.get_hist(symbol, exchange, interval, n_bars)
 
     print(raw_index_data)
 
