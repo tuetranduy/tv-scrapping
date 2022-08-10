@@ -1,7 +1,7 @@
 #!/bin/sh
 /usr/bin/python3 -m pip install virtualenv
 /usr/bin/python3 -m virtualenv venv
-source /venv/bin/activate
+source venv/bin/activate
 pip install requirements.txt
 touch .env
 export FLASK_APP=api.py
